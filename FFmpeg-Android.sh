@@ -6,7 +6,7 @@ SOURCE=`pwd`/ffmpeg
 if [ -d ffmpeg ]; then
   cd ffmpeg
 else
-  git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg
+  git clone git@github.com:FFmpeg/FFmpeg.git ffmpeg
   cd ffmpeg
 fi
 
@@ -20,7 +20,7 @@ git log --pretty=format:%H -1 > ../ffmpeg-version
 
 TOOLCHAIN=/tmp/vplayer
 SYSROOT=$TOOLCHAIN/sysroot/
-$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-14 --install-dir=$TOOLCHAIN
+$ANDROID_NDK/build/tools/make-standalone-toolchain.sh --platform=android-19 --install-dir=$TOOLCHAIN
 
 export PATH=$TOOLCHAIN/bin:$PATH
 export CC="ccache arm-linux-androideabi-gcc"
